@@ -113,8 +113,8 @@
     }
     .pub:last-child { border-bottom: none; }
     .pub-thumb {
-      width: 120px;
-      height: 80px;
+      width: 200px;
+      height: 130px;
       background: #f3f4f6;
       border-radius: 6px;
       flex-shrink: 0;
@@ -123,6 +123,13 @@
       justify-content: center;
       font-size: 28px;
       color: #ccc;
+      overflow: hidden;
+    }
+    .pub-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 6px;
     }
     .pub-info h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; }
     .pub-authors { font-size: 0.85rem; color: #666; margin-bottom: 4px; }
@@ -195,7 +202,7 @@
 
   <!-- ── Hero ── -->
   <section class="hero" id="about" style="border-top:none; padding-top:56px;">
-    <div class="avatar">👤</div>
+    <div class="avatar"><img src="assets/avatar.jpeg" alt="Yulin Li" /></div>
     <div class="hero-text">
       <h1>Yulin Li</h1>
       <div class="subtitle">M.S. / Ph.D. Student · Robotics &amp; Motion Planning</div>
@@ -248,11 +255,15 @@
     <ul class="news-list">
       <li>
         <span class="news-date">2025.05</span>
-        <span>Started building personal research homepage.</span>
+        <span>Paper on One-Step CDF-MPPI accepted at <strong>ICRA 2026</strong>.</span>
       </li>
       <li>
-        <span class="news-date">2025.01</span>
-        <span>New project on diffusion-based motion planning released on GitHub.</span>
+        <span class="news-date">2024.10</span>
+        <span>Paper on MOF-303 atmospheric water harvesting published in <strong>ACS Applied Nano Materials</strong>.</span>
+      </li>
+      <li>
+        <span class="news-date">2024.09</span>
+        <span>Preprint on S-RRT*-based motion planner for continuum-rigid manipulator released on arXiv.</span>
       </li>
     </ul>
   </section>
@@ -260,12 +271,35 @@
   <!-- ── Publications ── -->
   <section id="publications">
     <h2>Publications</h2>
+
+    <div class="pub">
+      <div class="pub-thumb">
+        <img src="assets/icra2026_teaser.png" alt="ICRA2026 Teaser" />
+      </div>
+      <div class="pub-info">
+        <h3>One-Step Model Predictive Path Integral for Manipulator Motion Planning Using Configuration Space Distance Fields</h3>
+        <div class="pub-authors">
+          <strong>Yulin Li</strong>, Tetsuro Miyazaki, Kenji Kawashima
+        </div>
+        <div class="pub-venue">
+          <em>IEEE International Conference on Robotics and Automation (ICRA)</em>, 2026
+        </div>
+        <div class="pub-cite" style="font-size:0.8rem;color:#888;margin-bottom:8px;">
+          <span style="background:#d1fae5;color:#065f46;padding:2px 8px;border-radius:4px;font-weight:600;">ICRA 2026 Accepted</span>
+          &nbsp;·&nbsp; arXiv:2509.00836
+        </div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2509.00836" target="_blank">arXiv</a>
+          <a href="https://arxiv.org/pdf/2509.00836" target="_blank">PDF</a>
+        </div>
+      </div>
+    </div>
+
     <div class="pub">
       <div class="pub-thumb">
         <img
           src="https://pubs.acs.org/cms/10.1021/acsanm.4c04357/asset/images/medium/an4c04357_0001.gif"
           alt="Graphical Abstract"
-          style="width:120px;height:80px;object-fit:cover;border-radius:6px;"
           onerror="this.style.display='none';this.parentElement.innerHTML='🧪';"
         />
       </div>
@@ -289,11 +323,7 @@
 
     <div class="pub">
       <div class="pub-thumb">
-        <img
-          src="assets/icra2025_model.png"
-          alt="Graphical Abstract"
-          style="width:120px;height:80px;object-fit:cover;border-radius:6px;"
-        />
+        <img src="assets/icra2025_model.png" alt="Graphical Abstract" />
       </div>
       <div class="pub-info">
         <h3>S-RRT*-based Obstacle Avoidance Autonomous Motion Planner for Continuum-rigid Manipulator</h3>
@@ -313,42 +343,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ── Projects ── -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects-grid">
-      <a class="project-card" href="https://github.com/Rin-Li/PointFlowMatch" target="_blank" style="color:inherit;">
-        <h3>PointFlowMatch</h3>
-        <p>Flow matching-based motion planning for robotic systems.</p>
-        <div class="project-tags">
-          <span>Flow Matching</span><span>Robotics</span><span>Python</span>
-        </div>
-      </a>
-      <a class="project-card" href="https://github.com/Rin-Li/diffusion_policy" target="_blank" style="color:inherit;">
-        <h3>Diffusion Policy</h3>
-        <p>Diffusion model-based robot policy learning and imitation.</p>
-        <div class="project-tags">
-          <span>Diffusion</span><span>Imitation Learning</span>
-        </div>
-      </a>
-      <a class="project-card" href="https://github.com/Rin-Li/TradingAgents" target="_blank" style="color:inherit;">
-        <h3>TradingAgents</h3>
-        <p>AI-powered multi-agent system for financial trading analysis.</p>
-        <div class="project-tags">
-          <span>LLM Agents</span><span>Finance</span>
-        </div>
-      </a>
-      <a class="project-card" href="https://github.com/Rin-Li" target="_blank" style="color:inherit;">
-        <h3>More on GitHub →</h3>
-        <p>See all projects and contributions on my GitHub profile.</p>
-        <div class="project-tags">
-          <span>Open Source</span>
-        </div>
-      </a>
-    </div>
-  </section>
-
   <!-- ── Contact ── -->
   <section id="contact">
     <h2>Contact</h2>
