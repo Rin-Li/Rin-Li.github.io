@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yulin Li</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #fff;
+      color: #222;
+      line-height: 1.65;
+    }
+
+    a { color: #0070f3; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Layout ── */
+    .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── Nav ── */
+    nav {
+      border-bottom: 1px solid #eee;
+      padding: 16px 0;
+    }
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .name { font-weight: 600; font-size: 1rem; color: #222; }
+    nav ul { list-style: none; display: flex; gap: 24px; }
+    nav ul li a { color: #555; font-size: 0.9rem; }
+    nav ul li a:hover { color: #222; text-decoration: none; }
+
+    /* ── Hero ── */
+    .hero {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+      padding: 56px 0 40px;
+    }
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: #e8e8e8;
+      flex-shrink: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      color: #999;
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-text h1 { font-size: 2rem; font-weight: 700; margin-bottom: 4px; }
+    .hero-text .subtitle {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 12px;
+    }
+    .hero-text p { font-size: 0.95rem; color: #444; max-width: 540px; }
+    .links { display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
+    .links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: #333;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .links a:hover { border-color: #aaa; background: #f5f5f5; text-decoration: none; }
+
+    /* ── Section ── */
+    section { padding: 36px 0; border-top: 1px solid #eee; }
+    section h2 { font-size: 1.25rem; font-weight: 600; margin-bottom: 20px; color: #111; }
+
+    /* ── Research interests ── */
+    .tags { display: flex; flex-wrap: wrap; gap: 10px; }
+    .tag {
+      padding: 5px 14px;
+      background: #f3f4f6;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: #444;
+    }
+
+    /* ── News ── */
+    .news-list { list-style: none; }
+    .news-list li {
+      display: flex;
+      gap: 16px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 0.9rem;
+    }
+    .news-list li:last-child { border-bottom: none; }
+    .news-date { color: #888; white-space: nowrap; min-width: 80px; }
+
+    /* ── Publications ── */
+    .pub {
+      display: flex;
+      gap: 20px;
+      padding: 18px 0;
+      border-bottom: 1px solid #f0f0f0;
+      align-items: flex-start;
+    }
+    .pub:last-child { border-bottom: none; }
+    .pub-thumb {
+      width: 120px;
+      height: 80px;
+      background: #f3f4f6;
+      border-radius: 6px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      color: #ccc;
+    }
+    .pub-info h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; }
+    .pub-authors { font-size: 0.85rem; color: #666; margin-bottom: 4px; }
+    .pub-venue { font-size: 0.85rem; color: #888; margin-bottom: 8px; font-style: italic; }
+    .pub-links { display: flex; gap: 8px; }
+    .pub-links a {
+      font-size: 0.8rem;
+      padding: 2px 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      color: #444;
+    }
+    .pub-links a:hover { background: #f5f5f5; text-decoration: none; }
+
+    /* ── Projects ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .project-card {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 18px;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .project-card:hover { border-color: #ccc; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .project-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; }
+    .project-card p { font-size: 0.85rem; color: #666; margin-bottom: 10px; }
+    .project-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .project-tags span {
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      background: #f0f4ff;
+      color: #3b5bdb;
+      border-radius: 4px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid #eee;
+      padding: 28px 0;
+      text-align: center;
+      font-size: 0.82rem;
+      color: #aaa;
+    }
+
+    @media (max-width: 580px) {
+      .hero { flex-direction: column; gap: 20px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      nav ul { gap: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <span class="name">Yulin Li</span>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="container">
+
+  <!-- ── Hero ── -->
+  <section class="hero" id="about" style="border-top:none; padding-top:56px;">
+    <div class="avatar">👤</div>
+    <div class="hero-text">
+      <h1>Yulin Li</h1>
+      <div class="subtitle">M.S. / Ph.D. Student · Robotics &amp; Motion Planning</div>
+      <p>
+        I am a researcher interested in robot motion planning, diffusion-based policy learning,
+        and autonomous systems. My work focuses on bridging probabilistic generative models
+        with safe and efficient robot control.
+      </p>
+      <div class="links">
+        <a href="https://github.com/Rin-Li" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58v-2.04c-3.34.73-4.04-1.6-4.04-1.6-.54-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.72.08-.72 1.2.08 1.83 1.23 1.83 1.23 1.06 1.82 2.8 1.3 3.48.99.1-.77.41-1.3.75-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12 24 5.37 18.63 0 12 0z"/></svg>
+          GitHub
+        </a>
+        <a href="mailto:lyl20010824@gmail.com">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+          Email
+        </a>
+        <a href="https://scholar.google.com" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L0 9l4 2.5V20h16v-8.5L24 9zm0 13.5a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>
+          Google Scholar
+        </a>
+        <a href="cv.pdf" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          CV
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Research Interests ── -->
+  <section>
+    <h2>Research Interests</h2>
+    <div class="tags">
+      <span class="tag">Robot Motion Planning</span>
+      <span class="tag">Diffusion Policy</span>
+      <span class="tag">Flow Matching</span>
+      <span class="tag">Autonomous Driving</span>
+      <span class="tag">Reinforcement Learning</span>
+      <span class="tag">Imitation Learning</span>
+    </div>
+  </section>
+
+  <!-- ── News ── -->
+  <section>
+    <h2>News</h2>
+    <ul class="news-list">
+      <li>
+        <span class="news-date">2025.05</span>
+        <span>Started building personal research homepage.</span>
+      </li>
+      <li>
+        <span class="news-date">2025.01</span>
+        <span>New project on diffusion-based motion planning released on GitHub.</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ── Publications ── -->
+  <section id="publications">
+    <h2>Publications</h2>
+    <div class="pub">
+      <div class="pub-thumb">📄</div>
+      <div class="pub-info">
+        <h3>Your Paper Title Here</h3>
+        <div class="pub-authors"><strong>Yulin Li</strong>, Co-author A, Co-author B</div>
+        <div class="pub-venue">Conference / Journal Name, 2025</div>
+        <div class="pub-links">
+          <a href="#">Paper</a>
+          <a href="#">Code</a>
+          <a href="#">Video</a>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:0.85rem;color:#aaa;padding-top:12px;">More publications coming soon.</p>
+  </section>
+
+  <!-- ── Projects ── -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <a class="project-card" href="https://github.com/Rin-Li/PointFlowMatch" target="_blank" style="color:inherit;">
+        <h3>PointFlowMatch</h3>
+        <p>Flow matching-based motion planning for robotic systems.</p>
+        <div class="project-tags">
+          <span>Flow Matching</span><span>Robotics</span><span>Python</span>
+        </div>
+      </a>
+      <a class="project-card" href="https://github.com/Rin-Li/diffusion_policy" target="_blank" style="color:inherit;">
+        <h3>Diffusion Policy</h3>
+        <p>Diffusion model-based robot policy learning and imitation.</p>
+        <div class="project-tags">
+          <span>Diffusion</span><span>Imitation Learning</span>
+        </div>
+      </a>
+      <a class="project-card" href="https://github.com/Rin-Li/TradingAgents" target="_blank" style="color:inherit;">
+        <h3>TradingAgents</h3>
+        <p>AI-powered multi-agent system for financial trading analysis.</p>
+        <div class="project-tags">
+          <span>LLM Agents</span><span>Finance</span>
+        </div>
+      </a>
+      <a class="project-card" href="https://github.com/Rin-Li" target="_blank" style="color:inherit;">
+        <h3>More on GitHub →</h3>
+        <p>See all projects and contributions on my GitHub profile.</p>
+        <div class="project-tags">
+          <span>Open Source</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ── Contact ── -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p style="font-size:0.9rem;color:#444;">
+      Feel free to reach out via email at
+      <a href="mailto:lyl20010824@gmail.com">lyl20010824@gmail.com</a>
+      or connect on <a href="https://github.com/Rin-Li" target="_blank">GitHub</a>.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    © 2025 Yulin Li · Built with GitHub Pages
+  </div>
+</footer>
+
+</body>
+</html>
